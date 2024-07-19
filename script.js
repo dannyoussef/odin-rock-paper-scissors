@@ -1,14 +1,15 @@
-console.log("Hello World!");
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
     let randomNumber = Math.random();
     console.log(randomNumber);
     if (randomNumber <= 0.3) {
-        console.log("Rock");
+        return "Rock";
     } else if (randomNumber > 0.3 && randomNumber <= 0.6) {
-        console.log("Paper");
+        return "Paper";
     } else {
-        console.log("Scissors")
+        return "Scissors"
     }
 }
 
@@ -16,6 +17,7 @@ function getHumanChoice() {
     let input = prompt("Choose Rock, Paper, or Scissors: ")
     return input;
 }
+
 
 console.log(getComputerChoice());
 console.log(getHumanChoice());
