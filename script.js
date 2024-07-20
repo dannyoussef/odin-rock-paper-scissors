@@ -41,25 +41,23 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-// function playGame() {
-//   let humanScore = 0;
-//   let computerScore = 0;
-
-// for (i = 0; i < 5; i++) {
-//   const humanSelection = getHumanChoice();
-//   const computerSelection = getComputerChoice();
-//   if (playRound(humanSelection, computerSelection) == 1) {
-//     humanScore++;
-//   }
-//   if (playRound(humanSelection, computerSelection) == 0) {
-//     computerScore++;
-//   }
-// }
-
-//   console.log("\nYour Score:\t ", humanScore);
-//   console.log("Computer Score:\t ", computerScore);
-// }
-
+function calculateScore() {
+  if (playerScore == 5) {
+    alert("You win!");
+    playerScore = 0;
+    computerScore = 0;
+    userScoreboard.textContent = "Your Score: " + playerScore;
+    computerScoreboard.textContent = "Computer Score: " + computerScore;
+    gameLog.textContent = "";
+  } else if (computerScore == 5) {
+    alert("Computer wins.");
+    playerScore = 0;
+    computerScore = 0;
+    userScoreboard.textContent = "Your Score: " + playerScore;
+    computerScoreboard.textContent = "Computer Score: " + computerScore;
+    gameLog.textContent = "";
+  }
+}
 function rockSelected() {
   let computerPick = getComputerChoice();
 
@@ -70,6 +68,7 @@ function rockSelected() {
     computerScore++;
     computerScoreboard.textContent = "Computer Score: " + computerScore;
   }
+  calculateScore();
 }
 
 function paperSelected() {
@@ -82,6 +81,7 @@ function paperSelected() {
     computerScore++;
     computerScoreboard.textContent = "Computer Score: " + computerScore;
   }
+  calculateScore();
 }
 
 function scissorsSelected() {
@@ -94,6 +94,7 @@ function scissorsSelected() {
     computerScore++;
     computerScoreboard.textContent = "Computer Score: " + computerScore;
   }
+  calculateScore();
 }
 
 let playerScore = 0;
@@ -115,5 +116,3 @@ const computerScoreboard = document.querySelector("#computer-score");
 computerScoreboard.textContent = "Computer Score: " + computerScore;
 
 const gameLog = document.querySelector("#game-log");
-
-// playGame();
